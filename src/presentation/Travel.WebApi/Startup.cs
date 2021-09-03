@@ -14,6 +14,8 @@ using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
 
 using Travel.Data.Context;
+using Travel.Application;
+using Travel.Shared;
 
 namespace Travel.WebApi
 {
@@ -33,6 +35,9 @@ namespace Travel.WebApi
             {
                 options.UseSqlite("Data Source=TravelTourDatabase.sqlite3");
             });
+
+            services.AddApplication();
+            services.AddInfrastructureShared(Configuration);
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
