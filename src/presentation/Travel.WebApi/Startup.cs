@@ -16,6 +16,7 @@ using Microsoft.EntityFrameworkCore;
 using Travel.Data;
 using Travel.Application;
 using Travel.Shared;
+using Travel.WebApi.Filters;
 
 namespace Travel.WebApi
 {
@@ -36,6 +37,13 @@ namespace Travel.WebApi
             services.AddInfrastructureData();
 
             services.AddControllers();
+
+            services.AddControllersWithViews(options =>
+                options.Filters.Add(new ApiExceptionFilter()));
+            services.Configure<ApiBehaviorOptions>(options =>
+                options.SuppressModelStateInvalidFilter = true
+            );
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Travel.WebApi", Version = "v1" });
