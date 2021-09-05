@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -17,6 +18,7 @@ using Travel.Data;
 using Travel.Application;
 using Travel.Shared;
 using Travel.WebApi.Filters;
+using Travel.WebApi.Helpers;
 
 namespace Travel.WebApi
 {
@@ -46,7 +48,7 @@ namespace Travel.WebApi
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Travel.WebApi", Version = "v1" });
+                c.OperationFilter<SwaggerDefaultValues>();
             });
         }
 
