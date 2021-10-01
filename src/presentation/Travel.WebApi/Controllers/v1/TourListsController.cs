@@ -1,12 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Options;
+
 using Travel.Application.TourLists.Commands.CreateTourList;
 using Travel.Application.TourLists.Commands.DeleteTourList;
 using Travel.Application.TourLists.Commands.UpdateTourList;
 using Travel.Application.TourLists.Queries.ExportTours;
 using Travel.Application.TourLists.Queries.GetTours;
-using Travel.Domain.Settings;
 
 namespace Travel.WebApi.Controllers.v1
 {
@@ -14,18 +13,6 @@ namespace Travel.WebApi.Controllers.v1
     [Route("api/[controller]")]
     public class TourListsController : ApiController
     {
-        private IOptions<MailSettings> _Settings;
-        public TourListsController(IOptions<MailSettings> settings)
-        {
-            _Settings = settings;
-        }
-
-        [HttpGet("/email")]
-        public ActionResult<string> GetEmail()
-        {
-            return _Settings.Value.DisplayName;
-        }
-        
         [HttpGet]
         public async Task<ActionResult<ToursVm>> Get()
         {
