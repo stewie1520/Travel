@@ -9,7 +9,6 @@ using Travel.Application.TourPackages.Commands.DeleteTourPackage;
 namespace Travel.WebApi.Controllers.v1
 {
     [ApiController]
-    [Route("api/[controller]")]
     public class TourPackagesController : ApiController
     {
         [HttpPut("[action]")]

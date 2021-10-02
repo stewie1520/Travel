@@ -16,6 +16,8 @@ using Microsoft.EntityFrameworkCore;
 
 using Travel.Data;
 using Travel.Application;
+using Travel.Identity;
+using Travel.Identity.Helpers;
 using Travel.Shared;
 using Travel.WebApi.Filters;
 using Travel.WebApi.Helpers;
@@ -34,9 +36,23 @@ namespace Travel.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddApiVersioning(options =>
+            {
+                options.ReportApiVersions = true;
+                options.AssumeDefaultVersionWhenUnspecified = true;
+                options.DefaultApiVersion = new ApiVersion(1, 0);
+            });
+
+            services.AddVersionedApiExplorer(options =>
+            {
+                options.GroupNameFormat = "'v'V";
+                options.SubstituteApiVersionInUrl = true;
+            });
+
             services.AddApplication();
             services.AddInfrastructureShared(Configuration);
             services.AddInfrastructureData();
+            services.AddInfrastructureIdentity(Configuration);
 
             services.AddControllers();
 
@@ -49,6 +65,28 @@ namespace Travel.WebApi
             services.AddSwaggerGen(c =>
             {
                 c.OperationFilter<SwaggerDefaultValues>();
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                {
+                    Description = "JWT Authorization header using the Bearer schema.",
+                    Name = "Authorization",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.Http,
+                    Scheme = "bearer"
+                });
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Type = ReferenceType.SecurityScheme,
+                                Id = "Bearer"
+                            }
+
+                        }, new List<string>()
+                    }
+                });
             });
         }
 
@@ -65,6 +103,8 @@ namespace Travel.WebApi
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseMiddleware<JwtMiddleware>();
 
             app.UseAuthorization();
 
