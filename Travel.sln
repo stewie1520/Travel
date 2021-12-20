@@ -1,25 +1,27 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30114.105
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{51D0B129-4B57-4767-8FB6-56DCC702341E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "core", "core", "{F32697B3-E435-43CF-BB89-C0DD034E48C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Travel.Domain", "src\core\Travel.Domain\Travel.Domain.csproj", "{68914A3D-8D51-4E83-A2C6-7CB75BFEA7D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Travel.Domain", "src\core\Travel.Domain\Travel.Domain.csproj", "{68914A3D-8D51-4E83-A2C6-7CB75BFEA7D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Travel.Application", "src\core\Travel.Application\Travel.Application.csproj", "{A4BB91FD-BEBC-4686-9F06-0360B2C57143}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Travel.Application", "src\core\Travel.Application\Travel.Application.csproj", "{A4BB91FD-BEBC-4686-9F06-0360B2C57143}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "infrastructure", "infrastructure", "{1D619889-F37F-4B26-936D-0C875D26253E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Travel.Data", "src\infrastructure\Travel.Data\Travel.Data.csproj", "{22CEF166-EF95-46D9-AA99-3C62447C09F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Travel.Data", "src\infrastructure\Travel.Data\Travel.Data.csproj", "{22CEF166-EF95-46D9-AA99-3C62447C09F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Travel.Shared", "src\infrastructure\Travel.Shared\Travel.Shared.csproj", "{B6A2C894-A2AA-485D-AEB2-5AF4DA19DE0A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Travel.Shared", "src\infrastructure\Travel.Shared\Travel.Shared.csproj", "{B6A2C894-A2AA-485D-AEB2-5AF4DA19DE0A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "presentation", "presentation", "{DD6F6A78-A44C-4B87-8EEC-FD39321E3CDE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Travel.WebApi", "src\presentation\Travel.WebApi\Travel.WebApi.csproj", "{4B9D77FB-99AE-447F-BB78-DDA38B2707E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Travel.WebApi", "src\presentation\Travel.WebApi\Travel.WebApi.csproj", "{4B9D77FB-99AE-447F-BB78-DDA38B2707E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Travel.Identity", "src\infrastructure\Travel.Identity\Travel.Identity.csproj", "{F5FD651E-A1D9-4D4F-95D4-B2CDD76584E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,9 +31,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{68914A3D-8D51-4E83-A2C6-7CB75BFEA7D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -94,6 +93,21 @@ Global
 		{4B9D77FB-99AE-447F-BB78-DDA38B2707E4}.Release|x64.Build.0 = Release|Any CPU
 		{4B9D77FB-99AE-447F-BB78-DDA38B2707E4}.Release|x86.ActiveCfg = Release|Any CPU
 		{4B9D77FB-99AE-447F-BB78-DDA38B2707E4}.Release|x86.Build.0 = Release|Any CPU
+		{F5FD651E-A1D9-4D4F-95D4-B2CDD76584E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5FD651E-A1D9-4D4F-95D4-B2CDD76584E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5FD651E-A1D9-4D4F-95D4-B2CDD76584E0}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F5FD651E-A1D9-4D4F-95D4-B2CDD76584E0}.Debug|x64.Build.0 = Debug|Any CPU
+		{F5FD651E-A1D9-4D4F-95D4-B2CDD76584E0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F5FD651E-A1D9-4D4F-95D4-B2CDD76584E0}.Debug|x86.Build.0 = Debug|Any CPU
+		{F5FD651E-A1D9-4D4F-95D4-B2CDD76584E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5FD651E-A1D9-4D4F-95D4-B2CDD76584E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5FD651E-A1D9-4D4F-95D4-B2CDD76584E0}.Release|x64.ActiveCfg = Release|Any CPU
+		{F5FD651E-A1D9-4D4F-95D4-B2CDD76584E0}.Release|x64.Build.0 = Release|Any CPU
+		{F5FD651E-A1D9-4D4F-95D4-B2CDD76584E0}.Release|x86.ActiveCfg = Release|Any CPU
+		{F5FD651E-A1D9-4D4F-95D4-B2CDD76584E0}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F32697B3-E435-43CF-BB89-C0DD034E48C0} = {51D0B129-4B57-4767-8FB6-56DCC702341E}
@@ -104,5 +118,9 @@ Global
 		{B6A2C894-A2AA-485D-AEB2-5AF4DA19DE0A} = {1D619889-F37F-4B26-936D-0C875D26253E}
 		{DD6F6A78-A44C-4B87-8EEC-FD39321E3CDE} = {51D0B129-4B57-4767-8FB6-56DCC702341E}
 		{4B9D77FB-99AE-447F-BB78-DDA38B2707E4} = {DD6F6A78-A44C-4B87-8EEC-FD39321E3CDE}
+		{F5FD651E-A1D9-4D4F-95D4-B2CDD76584E0} = {1D619889-F37F-4B26-936D-0C875D26253E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D48967A2-E403-49D7-83CA-15A2DE113328}
 	EndGlobalSection
 EndGlobal
